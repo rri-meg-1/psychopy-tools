@@ -1,3 +1,7 @@
+# Function RotmanMegProjector.make_magic_pixel is adapted from
+# https://github.com/rri-meltzer-lab-1/MEG_ObjectMemoryCode/blob/main/Psychopy_TriggerTest.py
+# The source script Psychopy_TriggerTest.py was authored by Graham Flick, grahamflick00@gmail.com
+
 # python imports
 import math
 import warnings
@@ -20,14 +24,14 @@ class RotmanMegProjector:
     def __init__(self):
         self.window = visual.Window(size=self._resolution, fullscr=True, 
             monitor=self._monitor, units='pix')
-    
+
     def make_magic_pixel(self, green_value, size_px=20):
         # top left: x-coord = 0 - width/2, y-coord = 0 + height/2
         top_left = np.add(np.array([0, 0]),
             np.floor_divide(self._resolution, np.array([-2, 2])))
         return visual.Rect(win = self.window, size=size_px, 
             pos=top_left, color = (0, green_value, 0), colorSpace='rgb255')
-    
+
     def convert_seconds_to_frames(self, seconds):
         frames = self._refresh_rate * seconds
         frames_floor = math.floor(frames)
