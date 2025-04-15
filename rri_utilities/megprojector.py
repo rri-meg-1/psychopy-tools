@@ -14,6 +14,7 @@ from psychopy import monitors, visual
 
 #imports
 from .constants import PROPIXX_PROJECTOR_SPEC
+from .propixx import ProPixxDriver
 
 class RotmanMegProjector:
     _monitor = monitors.Monitor(PROPIXX_PROJECTOR_SPEC.name)
@@ -24,6 +25,7 @@ class RotmanMegProjector:
     def __init__(self):
         self.window = visual.Window(size=self._resolution, fullscr=True, 
             monitor=self._monitor, units='pix')
+        self._driver = ProPixxDriver()
 
     def make_magic_pixel(self, green_value, size_px=20):
         # top left: x-coord = 0 - width/2, y-coord = 0 + height/2
@@ -39,3 +41,9 @@ class RotmanMegProjector:
             warnings.warn(f"{seconds} can't be converted to exact frames. "
                 "Rounded to {frames_floor}")
         return frames_floor
+    
+    def dim(self):
+        self._driver.dim_step()
+
+    def reset_brightness(self):
+        self._driver.reset_to_full_brightness()
