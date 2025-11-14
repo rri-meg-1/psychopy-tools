@@ -101,8 +101,13 @@ meg_window.flip()
 escape_detector = EscapeDetector()
 
 # wait for experimenter to start
-event.waitKeys()
+event.waitKeys(keyList=['space', 'return', 'enter'])
 
+# start experiment
+fixation.draw()
+start_recording_magic_pix.draw()
+meg_window.flip()
+core.wait(1.0) # wait for 1 second before starting trials
 
 # cycle through 100 trials
 for trial_number in range(N_TRIALS):
