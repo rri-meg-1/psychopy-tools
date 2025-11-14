@@ -49,7 +49,7 @@ def flush_logs_and_exit():
     logging.flush()
     meg_window.close()
     df = pd.DataFrame(reaction_times)
-    df.to_csv('data/reaction_times.csv', index=False, header=False)
+    df.to_csv('data/reaction_times.csv', index=False, header=False, mode='w')
     core.quit()
 
 COUNTDOWN_TIME_FRAMES = projector.convert_seconds_to_frames(2.0)
