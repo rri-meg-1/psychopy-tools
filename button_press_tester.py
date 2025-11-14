@@ -33,11 +33,11 @@ fixation = visual.Circle(meg_window, size = 10,
 
 # initialize instructions text
 ready_text = visual.TextStim(meg_window, text='Experimenter: Press any key to start',
-    color='white', height=20, pos=(0, 50), anchorVert='bottom')
+    color='white', height=80, pos=(0, 50), anchorVert='bottom')
 participant_countdown_text = visual.TextStim(meg_window, text='Ready, set...',
-    color='white', height=30)
+    color='white', height=80, anchorVert='bottom')
 button_press_text = visual.TextStim(meg_window, text='Press a button now!',
-    color='white', height=30, pos=(0, 0), anchorVert='bottom')
+    color='white', height=80, pos=(0, 0), anchorVert='bottom', wrapWidth=1000)
 
 # initialize magix pixel
 start_recording_magic_pix = projector.make_magic_pixel(255, size_px=10)
